@@ -31,7 +31,7 @@ jobs:
           docker run --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$HOME/.cache/trivy":/root/.cache/ \
-            aquasec/trivy:latest image --format json --severity HIGH,CRITICAL imgvulne:1.1 \
+            aquasec/trivy:latest image --format json --severity HIGH,CRITICAL imgvulne:2.1 \
             | jq -r '
             ["TARGET","PACKAGE","INSTALLED","VULN","SEVERITY"],
             (.Results[]? as $r | $r.Vulnerabilities[]? | [$r.Target, .PkgName, .InstalledVersion, .VulnerabilityID, .Severity]) 
