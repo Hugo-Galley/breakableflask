@@ -23,6 +23,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name : Create Image
+        run: |
+            docker build -t imgvulne:2.1 .
       - name: Test Dockerfile
         run: |
           docker run --rm \
